@@ -1,1 +1,309 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complicated Chinese Family Tree</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <h1 class="header__title" data-key="site_title">The Complicated Chinese Family Tree</h1>
+                <div class="language-selector">
+                    <select id="languageSelect" class="form-control">
+                        <option value="en">English</option>
+                        <option value="nl">Nederlands</option>
+                        <option value="zh-traditional">繁體中文</option>
+                        <option value="zh-simplified">简体中文</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav__list">
+                <li><a href="#family-tree" class="nav__link" data-key="nav_family_tree">Interactive Family Tree</a></li>
+                <li><a href="#comparison" class="nav__link" data-key="nav_comparison">Language Comparison</a></li>
+                <li><a href="#quiz" class="nav__link" data-key="nav_quiz">Quiz Section</a></li>
+                <li><a href="#cultural" class="nav__link" data-key="nav_cultural">Cultural Context</a></li>
+                <li><a href="#about" class="nav__link" data-key="nav_about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Interactive Family Tree Section -->
+        <section id="family-tree" class="section">
+            <div class="container">
+                <h2 data-key="family_tree_title">Interactive Family Tree</h2>
+                <div class="family-tree-tabs">
+                    <button class="btn btn--secondary active" id="paternalTab" data-key="paternal_side">Paternal Side</button>
+                    <button class="btn btn--secondary" id="maternalTab" data-key="maternal_side">Maternal Side</button>
+                    <button class="btn btn--secondary" id="immediateTab" data-key="immediate_family">Immediate Family</button>
+                </div>
+                
+                <div class="family-tree-container">
+                    <div id="paternalTree" class="family-tree active">
+                        <div class="tree-level grandparents">
+                            <div class="family-member paternal" data-term="paternal grandfather">
+                                <span class="term" data-key="paternal_grandfather">爺爺</span>
+                                <span class="pronunciation">yéye</span>
+                            </div>
+                            <div class="family-member paternal" data-term="paternal grandmother">
+                                <span class="term" data-key="paternal_grandmother">奶奶</span>
+                                <span class="pronunciation">nǎinai</span>
+                            </div>
+                        </div>
+                        <div class="tree-level parents">
+                            <div class="family-member paternal" data-term="father's elder brother">
+                                <span class="term" data-key="fathers_elder_brother">伯伯</span>
+                                <span class="pronunciation">bóbo</span>
+                            </div>
+                            <div class="family-member immediate" data-term="father">
+                                <span class="term" data-key="father">爸爸</span>
+                                <span class="pronunciation">bàba</span>
+                            </div>
+                            <div class="family-member paternal" data-term="father's younger brother">
+                                <span class="term" data-key="fathers_younger_brother">叔叔</span>
+                                <span class="pronunciation">shūshu</span>
+                            </div>
+                            <div class="family-member paternal" data-term="father's sister">
+                                <span class="term" data-key="fathers_sister">姑姑</span>
+                                <span class="pronunciation">gūgu</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="maternalTree" class="family-tree">
+                        <div class="tree-level grandparents">
+                            <div class="family-member maternal" data-term="maternal grandfather">
+                                <span class="term" data-key="maternal_grandfather">外公</span>
+                                <span class="pronunciation">wàigōng</span>
+                            </div>
+                            <div class="family-member maternal" data-term="maternal grandmother">
+                                <span class="term" data-key="maternal_grandmother">外婆</span>
+                                <span class="pronunciation">wàipó</span>
+                            </div>
+                        </div>
+                        <div class="tree-level parents">
+                            <div class="family-member maternal" data-term="mother's brother">
+                                <span class="term" data-key="mothers_brother">舅舅</span>
+                                <span class="pronunciation">jiùjiu</span>
+                            </div>
+                            <div class="family-member immediate" data-term="mother">
+                                <span class="term" data-key="mother">媽媽</span>
+                                <span class="pronunciation">māma</span>
+                            </div>
+                            <div class="family-member maternal" data-term="mother's sister">
+                                <span class="term" data-key="mothers_sister">姨媽</span>
+                                <span class="pronunciation">yímā</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="immediateTree" class="family-tree">
+                        <div class="tree-level parents">
+                            <div class="family-member immediate" data-term="father">
+                                <span class="term" data-key="father">爸爸</span>
+                                <span class="pronunciation">bàba</span>
+                            </div>
+                            <div class="family-member immediate" data-term="mother">
+                                <span class="term" data-key="mother">媽媽</span>
+                                <span class="pronunciation">māma</span>
+                            </div>
+                        </div>
+                        <div class="tree-level siblings">
+                            <div class="family-member immediate" data-term="elder brother">
+                                <span class="term" data-key="elder_brother">哥哥</span>
+                                <span class="pronunciation">gēge</span>
+                            </div>
+                            <div class="family-member self">
+                                <span class="term" data-key="self">我</span>
+                                <span class="pronunciation">wǒ</span>
+                            </div>
+                            <div class="family-member immediate" data-term="younger sister">
+                                <span class="term" data-key="younger_sister">妹妹</span>
+                                <span class="pronunciation">mèimei</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="memberDetails" class="member-details card hidden">
+                    <div class="card__body">
+                        <h3 id="memberTitle"></h3>
+                        <div class="member-info">
+                            <div class="translations">
+                                <div class="translation-item">
+                                    <strong data-key="english">English:</strong>
+                                    <span id="englishTerm"></span>
+                                </div>
+                                <div class="translation-item">
+                                    <strong data-key="dutch">Dutch:</strong>
+                                    <span id="dutchTerm"></span>
+                                </div>
+                                <div class="translation-item">
+                                    <strong data-key="traditional">Traditional:</strong>
+                                    <span id="traditionalTerm"></span>
+                                </div>
+                                <div class="translation-item">
+                                    <strong data-key="simplified">Simplified:</strong>
+                                    <span id="simplifiedTerm"></span>
+                                </div>
+                            </div>
+                            <div class="pronunciations">
+                                <div class="pronunciation-item">
+                                    <strong data-key="mandarin">Mandarin:</strong>
+                                    <span id="mandarinPron"></span>
+                                </div>
+                                <div class="pronunciation-item">
+                                    <strong data-key="cantonese">Cantonese:</strong>
+                                    <span id="cantonesePron"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn--secondary" onclick="closeMemberDetails()" data-key="close">Close</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Language Comparison Section -->
+        <section id="comparison" class="section">
+            <div class="container">
+                <h2 data-key="comparison_title">Language Comparison</h2>
+                <div class="comparison-controls">
+                    <select id="categoryFilter" class="form-control">
+                        <option value="all" data-key="all_categories">All Categories</option>
+                        <option value="Immediate Family" data-key="immediate_family">Immediate Family</option>
+                        <option value="Paternal Family" data-key="paternal_family">Paternal Family</option>
+                        <option value="Maternal Family" data-key="maternal_family">Maternal Family</option>
+                        <option value="In-laws & Other Relatives" data-key="inlaws_relatives">In-laws & Other Relatives</option>
+                    </select>
+                </div>
+                <div class="comparison-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th data-key="english">English</th>
+                                <th data-key="dutch">Dutch</th>
+                                <th data-key="traditional">Traditional</th>
+                                <th data-key="simplified">Simplified</th>
+                                <th data-key="mandarin">Mandarin</th>
+                                <th data-key="cantonese">Cantonese</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparisonTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section">
+            <div class="container">
+                <h2 data-key="quiz_title">Quiz Section</h2>
+                <div class="quiz-container">
+                    <div id="quizStart" class="quiz-start">
+                        <p data-key="quiz_intro">Test your knowledge of Chinese family relationships!</p>
+                        <button class="btn btn--primary" onclick="startQuiz()" data-key="start_quiz">Start Quiz</button>
+                    </div>
+                    
+                    <div id="quizGame" class="quiz-game hidden">
+                        <div class="quiz-progress">
+                            <span data-key="question">Question</span> <span id="currentQuestion">1</span> <span data-key="of">of</span> <span id="totalQuestions">10</span>
+                        </div>
+                        <div class="quiz-question">
+                            <h3 id="questionText"></h3>
+                            <div class="quiz-options" id="quizOptions">
+                            </div>
+                        </div>
+                        <div class="quiz-feedback hidden" id="quizFeedback">
+                            <p id="feedbackText"></p>
+                            <button class="btn btn--primary" onclick="nextQuestion()" data-key="next_question">Next Question</button>
+                        </div>
+                    </div>
+
+                    <div id="quizResults" class="quiz-results hidden">
+                        <h3 data-key="quiz_complete">Quiz Complete!</h3>
+                        <p><span data-key="your_score">Your score:</span> <span id="finalScore">0</span><span data-key="out_of">/10</span></p>
+                        <button class="btn btn--primary" onclick="restartQuiz()" data-key="restart_quiz">Restart Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural Context Section -->
+        <section id="cultural" class="section">
+            <div class="container">
+                <h2 data-key="cultural_title">Cultural Context</h2>
+                <div class="cultural-content">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3 data-key="confucian_values">Confucian Values and Filial Piety</h3>
+                            <p data-key="confucian_description">Chinese family terminology reflects deep-rooted Confucian values, particularly the concept of filial piety (孝). The precise distinctions between family relationships emphasize respect for elders and the importance of family hierarchy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card__body">
+                            <h3 data-key="historical_background">Historical Background</h3>
+                            <p data-key="historical_description">The Chinese family system has evolved over thousands of years, with terminology that distinguishes between paternal and maternal relatives, birth order, and generational relationships. This complexity reflects the traditional importance of clan structures in Chinese society.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card__body">
+                            <h3 data-key="western_comparison">Western vs Chinese Family Terms</h3>
+                            <p data-key="western_comparison_description">While Western languages typically have one word for "uncle" or "aunt," Chinese distinguishes between paternal and maternal relatives, older and younger siblings, and even the spouse's side of the family. This creates a rich but complex vocabulary that precisely defines relationships.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 data-key="about_title">About</h2>
+                <div class="about-content">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3 data-key="complexity_title">The Complexity of Chinese Family Relationships</h3>
+                            <p data-key="complexity_description">Chinese family terminology is notably more complex than most Western languages. Where English has 2 terms for uncles and aunts, Chinese has over 8 specific terms depending on the relationship.</p>
+                            
+                            <div class="stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">40+</span>
+                                    <span class="stat-label" data-key="family_terms">Family Terms</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">4</span>
+                                    <span class="stat-label" data-key="languages">Languages</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">2</span>
+                                    <span class="stat-label" data-key="dialects">Chinese Dialects</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-key="footer_text">© 2025 The Complicated Chinese Family Tree. Educational resource for understanding Chinese family relationships.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
